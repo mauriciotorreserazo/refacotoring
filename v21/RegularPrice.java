@@ -1,0 +1,20 @@
+package movies.v21;
+
+public class RegularPrice extends Price {
+
+	private static final double CHARGE = 2.0;
+	
+	private static final double EXTRA_CHARGE = 1.5;
+	
+	private static final int DAYS_RENTED_THRESHOLD = 2;
+	
+	@Override
+	public double getCharge(int daysRented) {
+		double result = CHARGE;
+		if (daysRented > DAYS_RENTED_THRESHOLD) {
+			result += (daysRented - DAYS_RENTED_THRESHOLD) * EXTRA_CHARGE;
+		}
+		return result;
+	}
+
+}
